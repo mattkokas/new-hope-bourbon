@@ -1,0 +1,14 @@
+.hero {
+   position: relative;
+
+   &__msg {
+      text-align: center;
+      background: hex-to-rgba($black, 0.4);
+      padding: 2rem;
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 100%;
+      text-shadow: 0 1px rgba(0,0,0, 0.75);
+   }
+}

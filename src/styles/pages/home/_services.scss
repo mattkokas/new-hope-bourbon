@@ -1,0 +1,56 @@
+.list-checked {
+   list-style: none;
+   padding: 0;
+   margin-left: 0;
+   
+   > li {
+      position: relative;
+      padding-left: 1.5em;
+      
+      &:before {
+         content: $icon-ok;
+         font-family: "fontello";
+         display: inline-block;
+         position: absolute;
+         top: 0;
+         left: 0;
+         color: #D5AD6D;
+      }
+   }
+}
+
+
+.layout-home-services {
+   padding: 1.5rem 0 1rem;
+   margin: 0 0 2.5rem;
+   background: hex-to-rgba($black, 0.5);
+   border-bottom: 2px solid rgba(221, 221, 221, 0.3);
+   position: relative;
+
+   &__wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+   }
+
+   @include breakpoint($large-breakpoint) {
+      font-size: 1.1em;
+      padding: 2rem 0;
+   }
+   
+   
+  
+   
+   h2 {
+      &:first-of-type {
+         &:before {
+            content: $icon-cog-2;
+            font-family: "fontello";
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 0.5em;
+            color: #D5AD6D;
+         }
+      }
+   }
+}

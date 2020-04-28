@@ -1,0 +1,28 @@
+.layout-home-photos {
+   .button {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      max-width: 300px;
+      
+      .no-js & {
+         display: none;
+      }
+   }
+   
+   h2 {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 0 $gutter-size;
+      text-align: center;
+      
+      &:before {
+         content: $icon-picture;
+         font-family: "fontello";
+         display: inline-block;
+         vertical-align: middle;
+         margin-right: 0.25em;
+         line-height: 1;
+      }
+   }
+}

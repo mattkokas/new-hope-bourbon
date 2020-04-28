@@ -1,0 +1,33 @@
+.layout-home-about {
+   padding: 2.5rem 0;
+   max-width: 1200px;
+   margin: 0 auto;
+   position: relative;
+   
+   @include breakpoint($large-breakpoint)  {
+      font-size: 1.2em;
+   }
+   
+   &:before {
+      background: url('/images/kentucky-400x176.png') center 10% no-repeat transparent;
+      background-size: scale;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0.15;
+      
+      @include breakpoint(600px) {
+          background-image: url('/images/kentucky-600x264.png');
+          background-position: center 25%;
+      }
+      
+      @include breakpoint(960px) {
+          background-image: url('/images/kentucky-1000x440.png');
+          background-position: center center;
+          background-size: 900px auto;
+      }
+   }
+}

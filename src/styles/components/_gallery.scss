@@ -1,0 +1,240 @@
+.gallery {
+   margin: 0 0 2rem;
+
+   &.state--expanded {
+      .gallery__track__item {
+         display: inline-block !important;
+      }
+   }
+
+   &.state--lightbox-visible {
+      .gallery__lightbox {
+         z-index: 8000;
+         opacity: 1;
+         visibility: visible;
+         display: block;
+      }
+   }
+
+   &__track {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      @include clearFix();
+      font-size: 0;
+
+      &__item {
+         text-align: center;
+         display: inline-block;
+         vertical-align: middle;
+         width: 48%;
+         margin: 0 0 1.5rem 4%;
+         border: 2px solid transparent;
+         transition: border-color 200ms ease-in-out;
+         max-height: 300px;
+         overflow: hidden;
+
+         .no-js & {
+            display: inline-block !important;
+         }
+
+         &:nth-of-type(2n+1) {
+            margin-left: 0;
+            clear: both;
+         }
+
+         &:hover {
+            border-color: $white;
+         }
+
+         @include breakpoint($medium-breakpoint) {
+            width: 24%;
+            margin-left: 1.333333333333333%;
+
+            &:nth-of-type(2n+1) {
+               margin-left: 1.333333333333333%;
+            }
+
+            &:nth-of-type(4n+1) {
+               margin-left: 0;
+            }
+         }
+
+         a {
+            display: block;
+         }
+
+         img {
+            transition: opacity 400ms;
+         }
+
+         .lazyload {
+            opacity: 0;
+
+            .no-js & {
+               display: none;
+            }
+         }
+
+         .lazyloaded {
+             opacity: 1;
+         }
+      }
+   }
+
+   &.gallery--expandable {
+      .gallery__track {
+         .gallery__track__item {
+            display: none;
+
+            &:nth-of-type(-n+4) {
+               display: inline-block;
+            }
+
+            @include breakpoint($large-breakpoint) {
+               &:nth-of-type(-n+8) {
+                  display: inline-block;
+               }
+            }
+         }
+      }
+   }
+
+
+   &__expand,
+   &__collapse {
+      position: relative;
+      color: $dark-text;
+      text-align: center;
+      text-transform: lowercase;
+      font-style: italic;
+
+      &:before,
+      &:after {
+
+      }
+
+      a {
+         color: $dark-text;
+      }
+   }
+
+
+
+   &__lightbox {
+      position: fixed;
+      background: hex-to-rgba($black, 0.9);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      transition: all 300ms ease-in-out;
+      padding: 4rem 0 0;
+      opacity: 0;
+      visibility: none;
+      z-index: -1;
+      display: block;
+
+      .no-js & {
+         display: none;
+      }
+
+      a {
+         color: $light-text;
+         z-index: 8020;
+         display: inline-block;
+
+         &:hover,
+         &:active,
+         &:focus {
+            color: $light-text-secondary;
+         }
+
+         &:before {
+            font-family: "fontello";
+            display: inline-block;
+            font-size: 2.3rem;
+            line-height: 1;
+         }
+
+         span {
+            display: none;
+         }
+      }
+
+      &__close {
+         position: absolute;
+         top: 0.5rem;
+         right: 1rem;
+
+         &:before {
+            content: $icon-cancel;
+         }
+      }
+
+      &__img__wrapper {
+         text-align: center;
+         position: relative;
+         z-index: 8010;
+         transition: all 400ms ease-in-out;
+         height: 70vh;
+
+         @media screen and (min-height: 600px) {
+            height: 80vh;
+         }
+
+         @media screen and (min-height: 700px) {
+            height: 85vh;
+         }
+      }
+
+      &__img {
+         max-width: auto;
+         max-height: 100%;
+         border: 2px solid $white;
+         box-shadow: 0 0 4px $white;
+         position: relative;
+         transform: translateY(-50%);
+         top: 50%;
+      }
+
+      &__controls {
+         @include clearFix();
+         padding-top: 1rem;
+         position: relative;
+         width: 90%;
+         margin-left: auto;
+         margin-right: auto;
+         z-index: 8020;
+
+         @include breakpoint($medium-breakpoint) {
+            left: 0;
+            margin-top: -0.5rem;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+         }
+
+         @include breakpoint($large-breakpoint) {
+            padding: 0 $gutter-half;
+         }
+      }
+
+      &__prev {
+         float: left;
+
+         &:before {
+            content: $icon-left-open;
+         }
+      }
+
+      &__next {
+         float: right;
+
+         &:before {
+            content: $icon-right-open;
+         }
+      }
+   }
+}

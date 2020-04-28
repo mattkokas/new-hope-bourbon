@@ -1,0 +1,15 @@
+
+.container {
+    padding-left: $gutter-half;
+    padding-right: $gutter-half;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    max-width: $max-container-width;
+    @include clearFix();
+
+    @include breakpoint($medium-breakpoint) {
+      padding-left: $gutter-size;
+      padding-right: $gutter-size;
+   }
+}

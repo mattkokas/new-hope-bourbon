@@ -1,0 +1,24 @@
+.google-map {
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+
+   &.state--loading {
+      &:before {
+         content: $icon-spin;
+         font-family: "fontello";
+         font-size: 3rem;
+         line-height: 1;
+         animation: animate-spin 2s infinite;
+         display: inline-block;
+         position: relative;
+      }
+
+      .no-js & {
+         &:before  {
+            content: "";
+            display: none;
+         }
+      }
+   }
+}

@@ -1,0 +1,244 @@
+
+.header {
+   position: relative;
+
+   @include breakpoint($large-breakpoint) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+   }
+
+   &:before {
+      height: 60px;
+      width: 100%;
+      background: hex-to-rgba(darken(#292929, 10%), .6);
+      top: 0;
+      left: 0;
+      z-index: 500;
+      position: absolute;
+      content: "";
+   }
+
+   &__phone {
+      display: none;
+
+      @include breakpoint($large-breakpoint) {
+         display: inline-block;
+         position: absolute;
+         top: 12px;
+         left: $gutter-half;
+         font-size: 1.25rem;
+         z-index: 5000;
+         
+
+         &:before {
+            font-family: "fontello";
+            display: inline-block;
+            line-height: 1;
+            position: relative;
+            content: $icon-phone;
+            margin-right: 0.35em;
+            color: #d5ad6d;
+         }
+      }
+   }
+
+   &__call {
+      position: absolute;
+      z-index: 5000;
+      top: 10px;
+      left: $gutter-half;
+      font-size: 1.5rem;
+
+      @include breakpoint($large-breakpoint) {
+         display: none;
+      }
+
+      &,
+      &:active {
+         color: #d5ad6d;
+         background: hex-to-rgba(#d5ad6d, 0.2);
+         border-radius: 50%;
+         width: 40px;
+         height: 40px;
+         text-align: center;
+         border: 1px solid hex-to-rgba(#54105B, 0.3);
+         transition: all 150ms ease-in-out;
+         box-shadow: 0 0 8px hex-to-rgba($black, 0.5);
+      }
+
+      &:hover,
+      &:focus {
+         color: #d5ad6d;
+         background: darken(hex-to-rgba(#d5ad6d, 0.2), 10%);
+      }
+
+      &:before {
+         font-family: "fontello";
+         display: inline-block;
+         line-height: 1;
+         position: relative;
+         content: $icon-phone;
+         top: 2px;
+      }
+
+      span {
+         display: none;
+      }
+
+   }
+}
+
+.logo {
+   background: url('/images/log-500x119.png') center center no-repeat transparent;
+   position: absolute;
+   text-align: center;
+   overflow: hidden;
+   box-shadow: inset 2px 2px 20px rgba(0, 0, 0, 0.75);
+   z-index: 501;
+   height: 75px;
+   width: 90%;
+   top: 60px;
+   left: 50%;
+   margin-left: -45%;
+   padding: 15px 20px 20px;
+   border-radius: 12px;
+   transform: rotate(-0.5deg);
+   visibility: visible;
+
+   @include breakpoint($medium-breakpoint) {
+      display: block;
+      height: 119px;
+      width: 500px;
+      top: 15px;
+      margin-left: -250px;
+      padding: 20px;
+   }
+
+   @include breakpoint($medium-breakpoint) {
+      top: 47px;
+   }
+
+   @include breakpoint(1550px) {
+      top: 25px;
+   }
+
+   &:before,
+   &:after {
+      content: "";
+      background: silver;
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+      top: 7px;
+      display: inline-block;
+      position: absolute;
+      opacity: 0.9;
+      box-shadow: inset 1px 1px 1px #000;
+   }
+
+   &:before {
+      left: 15px;
+
+      @include breakpoint($medium-breakpoint) {
+         left: 15px;
+      }
+   }
+
+   &:after {
+      right: 10px;
+
+      @include breakpoint($medium-breakpoint) {
+         right: 10px;
+      }
+   }
+
+   h1 {
+      text-transform: uppercase;
+      font-size: 20px;
+      line-height: 1.1;
+      transform: rotate(1deg);
+      font-weight: 700;
+      margin: 0 auto;
+      color: #D5AD6D;
+      /*
+      background: -webkit-linear-gradient(transparent, transparent),
+             -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+   	background: -o-linear-gradient(transparent, transparent);
+
+
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     background-size: auto auto, auto 170%;
+      */
+     position: relative;
+
+     @include breakpoint($medium-breakpoint) {
+        font-size: 40px;
+        line-height: 1;
+     }
+
+  &:before,
+  &:after  {
+     content: "";
+     background: url('/images/barrel-icon-80x80.png') 0 0 no-repeat transparent;
+     display: inline-block;
+     width: 25px;
+     height: 25px;
+     background-size:contain;
+     position: absolute;
+     top: 10px;
+     opacity: 0.5;
+
+     @include breakpoint($medium-breakpoint) {
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        margin-top: -20px;
+     }
+  }
+
+  &:before {
+     left: 0;
+  }
+
+  &:after {
+     right: 0;
+  }
+
+      span {
+         display: block;
+
+         &:nth-of-type(1) {
+            word-spacing: 8px;
+         }
+      }
+   }
+}
+
+
+.state--nav-open {
+   header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      z-index: 2000;
+      background: darken(#292929, 10%);
+
+      @include breakpoint($large-breakpoint) {
+         position: absolute;
+         background: transparent;
+      }
+   }
+
+   .logo {
+      visibility: hidden;
+
+      @include breakpoint($large-breakpoint) {
+         visibility: visible;
+      }
+   }
+}

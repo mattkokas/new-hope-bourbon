@@ -1,0 +1,141 @@
+
+.contact-form {
+   position: relative;
+
+   &-success,
+   &-errors {
+      display: none;
+      font-size: 110%;
+      position: relative;
+      padding: 1em;
+      border: 2px solid transparent;
+      margin: 0 0 1rem;
+
+      &.is-visible {
+        display: block;
+     }
+
+     ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1.2;
+     }
+
+     > *:last-child {
+         margin-bottom: 0;
+     }
+   }
+   &-success {
+      display: block;
+      background: hex-to-rgba($black, 0.5);
+   }
+
+   &-errors {
+      background: $warning-color;
+      border-color: darken($warning-color, 10%);
+   }
+
+   &-success-hide,
+   &-errors-hide {
+      display: inline-block;
+      position: absolute;
+      top: 0.15rem;
+      right: 0.25rem;
+      font-size: 1.5rem;
+      color: inherit;
+
+      &:hover,
+      &:focus {
+         color: inherit;
+      }
+
+      &:before {
+         content: $icon-cancel;
+         line-height: 1;
+         font-family: "fontello";
+         display: inline-block;
+      }
+   }
+
+   .no-js & {
+      &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 5;
+      }
+   }
+
+   &-is-processing {
+      overflow: hidden;
+      opacity: 0.6;
+
+       &:before {
+           content: "";
+           display: block;
+           position: absolute;
+           height: 100%;
+           width: 100%;
+           z-index: 5;
+       }
+
+       &:after {
+           content: $icon-spin;
+           font-family: "fontello";
+           position: absolute;
+           font-size: 3rem;
+           top: 50%;
+           width: 100%;
+           text-align: center;
+           margin-top: -3rem;
+           line-height: 1;
+           animation: animate-spin 1s infinite;
+           z-index: 6;
+           opacity: 0.6;
+       }
+
+       * {
+         opacity: 0.5;
+      }
+
+       input,
+       select,
+       textarea {
+           cursor: not-allowed;
+       }
+   }
+
+   button {
+      display: block;
+      width: 100%;
+
+      @include breakpoint($medium-breakpoint) {
+         width: pixels-to-rems(200, $rem-base);
+      }
+
+      .no-js & {
+         pointer-events: none;
+         cursor: not-allowed;
+         display: none;
+      }
+   }
+
+   noscript {
+      p {
+         background: $warning-color;
+         font-weight: 700;
+         margin: 0;
+         padding: pixels-to-rems(20, $rem-base);
+         text-align: center;
+         margin: 0 0 1.5rem;
+         color: $white;
+      }
+   }
+}
+
+.input-error {
+   border: 1px solid $warning-color;
+}

@@ -1,0 +1,166 @@
+
+.nav-toggle {
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+   display: inline-block;
+   z-index: 9999;
+   
+   
+   span {
+      display: block;
+      position: absolute;
+      height: 9px;
+      height: 6px;
+      width: 100%;
+      background: #D5AD6D;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: all 200ms ease-in-out;
+      
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 12px;
+      }
+
+      &:nth-child(4) {
+        top: 24px;
+      }
+   }
+   
+
+   .state--nav-open & {
+      span {
+         &:nth-child(1) {
+           top: 12px;
+           width: 0%;
+           left: 50%;
+         }
+         
+         &:nth-child(2) {
+           transform: rotate(45deg);
+         }
+         
+         &:nth-child(3) {
+           transform: rotate(-45deg);
+         }
+         
+         &:nth-child(4) {
+           top: 12px;
+           width: 0%;
+           left: 50%;
+         }          
+      }
+   }
+}
+
+
+.nav {
+   text-align: left;
+   padding: 0;
+   position: fixed;
+   z-index: 9999;
+   background: hex-to-rgba($black, 0.9);
+   width: 100%;
+   min-height: 100vh;
+   top: 60px;
+   position: fixed;
+   left: -1000px;
+   transition: all 150ms ease-in-out;
+   
+   .state--nav-open & {
+      left: 0;
+      
+      @include breakpoint($large-breakpoint) {
+         right: 0;
+         left: auto;
+         opacity: 1;
+      }
+   }
+   
+   @include breakpoint($large-breakpoint) {
+      left: auto;
+      right: -100%;
+      width: 100%;
+      max-width: 200px;
+      min-height: auto;
+      position: absolute;
+      padding-bottom: 1rem;
+      background: hex-to-rgba(darken(#292929, 10%), .6);
+      transition: opacity 200ms ease-in-out;
+      opacity: 1;
+      border-bottom-left-radius: 10px;
+      box-shadow: 10px 10px 10px hex-to-rgba($black, 0.5);
+      
+      /*
+      position: relative;
+      top: auto;
+      left: auto;
+      z-index: 500;
+      background: transparent;
+      min-height: auto;
+      padding-top: 0.75rem;
+      */
+   }
+   
+   &__menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      @include clearFix();
+      border-top: 2px solid hex-to-rgba(#ddd, 0.3); 
+      
+      @include breakpoint($large-breakpoint) {
+         border: 0;
+         /*
+         border: 0;
+         text-align: right;
+         padding-right: $gutter-half;
+         */
+      }
+   }
+   
+   &__item {
+      text-align: center;
+      padding: 0;
+      border-bottom: 2px solid hex-to-rgba(#ddd, 0.3); 
+      text-shadow: 0 1px 1px hex-to-rgba($black, 0.5);
+      
+      @include breakpoint($large-breakpoint) {
+         /*
+         border: 0;
+         display: inline-block;
+         vertical-align: middle;
+         margin: 0 0.5rem;
+         */
+         border: 0;
+         text-align: right;
+      }
+   }
+   
+   &__link {
+      color: $white;
+      display: block;
+      padding: 0.5em $gutter-size;
+      
+      @include breakpoint($large-breakpoint) {
+         /*
+         display: inline-block;
+         padding: 0 0.5em;
+         */
+      }
+   }
+}
+
+

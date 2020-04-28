@@ -1,0 +1,262 @@
+{% set pageName = 'Kentucky Vacation Rental' %}
+{% set metaDescription = 'Vacation rental located in the heart of Bourbon Country.' %}
+{% set metaKeywords = 'vacation rental, vacation home, louisville, bardstown, kentucky, bourbon, kentucky derby' %}
+{% set metaImage = '/images/new-hope-bourbon-stop.jpg' %}
+{% set canonical = '/' %}
+
+{% extends '_layouts/default.njk' %}
+
+{% set gallery = [
+   {
+      "src": "house-view",
+      "alt": "View of Home from Outside"
+   },
+   {
+      "src": "bar-area",
+      "alt": "Bar Area"
+   },
+   {
+      "src": "kitchen",
+      "alt": "View of Kitchen Area"
+   },
+   {
+      "src": "living-room",
+      "alt": "Living Room Area"
+   },
+   {
+      "src": "couch",
+      "alt": "Couch in Living Room"
+   },
+   {
+      "src": "refrigerator",
+      "alt": "Refrigerator"
+   },
+   {
+      "src": "single-bed-bedroom",
+      "alt": "Single Bed Bedroom"
+   },
+   {
+      "src": "double-bed-bedroom",
+      "alt": "Double Bed Bedroom"
+   },
+   {
+      "src": "bedroom",
+      "alt": "Bedroom"
+   },
+   {
+      "src": "bathroom-mirror",
+      "alt": "Bathroom Mirror"
+   },
+   {
+      "src": "bathroom",
+      "alt": "Bathroom"
+   },
+   {
+      "src": "interior-doors",
+      "alt": "Interior Doors"
+   },
+   {
+      "src": "new-hope-bourbon-stop-sign",
+      "alt": " New Hope Bourbon Stop Sign"
+   },
+   {
+      "src": "no-smoking-sign",
+      "alt": "No Smoking Beyond This Point Sign"
+   },
+   {
+      "src": "house-front",
+      "alt": "Front of Home"
+   },
+   {
+      "src": "view-from-air",
+      "alt": "View of house from air."
+   },
+   {
+      "src": "view-of-town",
+      "alt": "View of New Hope, Kentucky from air."
+   }
+] %}
+
+{% block main %}
+   <section class="hero hero--home">
+      <div class="hero__msg">
+         <h4>Your Next Bourbon Trail Getaway</h4>
+      </div>
+   </section>
+
+   <section id="about" class="layout-home-about">
+      <article class="container">
+         <p>New Hope Bourbon Stop is a vacation rental located in the heart of Bourbon Country. This one-of-a-kind building has been in our family for three generations.</p>
+
+         <p>In the late 1930s our grandparents bought the building and started the New Hope Grocery Store. Later they added the Dance Hall. In those years it was “the place to be”, and for many years both the store and dance hall thrived. As our grandparents aged, they closed the store and focused on their farmland.</p>
+
+         <p>The year 2014 was a turning point for the old “Old Grocery Store” as it’s called by the locals. That was the year my brother and I inherited the building. We felt passionate about the legacy of our family place and didn’t want to just let it go.</p>
+
+         <p>Realizing that New Hope sits in the heart of Bourbon Country and is centrally located to many attractions and sights, we decided to undergo a total renovation. Now we would love to share our family home with YOU! Nelson County is filled with beautiful farmland and landscape. The drive and the sunsets alone are sights to behold.</p>
+      </article>
+   </section>
+
+   <section id="attractions" class="layout-home-attractions">
+      <div class="layout-home-attractions__wrapper">
+         <div class="container">
+            <h2>Points of Interest</h2>
+
+            <ul class="list-star">
+               <li>Bardstown, KY in Nelson County is the Bourbon Capital of the World</li>
+               <li>Bardstown hosts the annual Kentucky Bourbon Festival in September</li>
+               <li>We are minutes away from Makers Mark, Heaven Hill, Willett, & Barton 1792 Distilleries</li>
+               <li>Many more local distilleries are under an hour drive</li>
+               <li>Bardstown has three golf courses</li>
+               <li>My Old Kentucky Dinner Train plus many other great restaurants in the area</li>
+               <li>Gethsemani Monastery is five minutes away</li>
+            </ul>
+         </div>
+      </div>
+   </section>
+
+   <section id="services" class="layout-home-services">
+      <div class="layout-home-services__wrapper">
+         <div class="container">
+            <h2>Our Services</h2>
+
+            <ul class="list-checked">
+               <li>We provide you with a beautiful place with an emphasis on hospitality, comfort, and cleanliness</li>
+               <li>Our goal is to give YOU the most carefree vacation as possible</li>
+               <li>We offer a beautiful open-concept living room/kitchen with vaulted ceiling</li>
+               <li>Three large bedrooms and two full bathrooms</li>
+               <li>A Bar with separate ventilation, equipped with essential barware for your perfect cocktail</li>
+               <li>Outside you will enjoy the garden area with fire pit, gas grill, outside seating, and an acre of relaxation</li>
+            </ul>
+         </div>
+      </div>
+   </section>
+
+   <section id="gallery" class="layout-home-photos">
+      <div class="container">
+
+         <h2>Photo Gallery</h2>
+
+         <div class="gallery gallery--expandable">
+            <ul class="gallery__track">
+               {% for img in gallery %}
+                  <li class="gallery__track__item">
+                     <a href="/images/gallery/{{img.src}}.jpg" target="_blank">
+                        <picture>
+                           <source media="(max-width: 400px)" srcset="/images/gallery/{{img.src}}-200x150.webp" type="image/webp">
+
+                           <source media="(max-width: 400px)" srcset="/images/gallery/{{img.src}}-200x150.jpg">
+
+                           <source media="(max-width: 960px)" srcset="/images/gallery/{{img.src}}-250x188.webp" type="image/webp">
+
+                           <source media="(max-width: 960px)" srcset="/images/gallery/{{img.src}}-250x188.jpg">
+
+                           <source type="image/webp" srcset="/images/gallery/{{img.src}}-400x300.webp">
+
+                           {% if loop.index > 8 %}
+                              <img class="lazyload" data-src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
+                              <noscript>
+                                 <img src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
+                              </noscript>
+                           {% else %}
+                              <img class="lazyload" data-src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
+                              <noscript>
+                                 <img src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
+                              </noscript>
+                           {% endif %}
+                        </picture>
+                     </a>
+                  </li>
+               {% endfor %}
+            </ul>
+
+            <div class="gallery__lightbox" aria-hidden="true">
+               <a href="#" class="gallery__lightbox__close" title="Close">
+                  <span>Close</span>
+               </a>
+
+               <div class="gallery__lightbox__img__wrapper">
+                  <img class="gallery__lightbox__img">
+               </div>
+
+               <div class="gallery__lightbox__controls">
+                  <a href="#" class="gallery__lightbox__prev" title="Previous">
+                     <span>Previous</span>
+                  </a>
+                  <a href="#" class="gallery__lightbox__next" title="Next">
+                     <span>Next</span>
+                  </a>
+               </div>
+            </div>
+
+            <a class="button gallery__expander__btn">
+               View More Photos <i class="icon-angle-double-down" aria-hidden="true"></i>
+            </a>
+         </div>
+      </div>
+   </section>
+
+   <section id="amenities" class="layout-home-amenities">
+      <h3 class="layout-home-amenities__heading">
+         Come see all that is Kentucky, the sunsets, the bourbon, the horses, the food, and the history!<br>
+         Your time here will be a carefree, memorable experience!
+      </h3>
+
+      <div class="container">
+         <div class="layout-home-amenities__house">
+            <ul class="house-list">
+               <li>Accommodates 6</li>
+               <li>3 Bedrooms</li>
+               <li>2 Bathrooms</li>
+               <li>4 Beds</li>
+            </ul>
+         </div>
+
+         <div class="layout-home-amenities__amenities">
+            <ul classs="amenities-list">
+               <li>Kitchen</li>
+               <li>TV</li>
+               <li>Washer / Dryer</li>
+               <li>Wireless Internet</li>
+               <li>Heating / Air Conditioning</li>
+               <li>Shampoo & Essentials</li>
+            </ul>
+         </div>
+      </div>
+   </section>
+
+   <section id="contact" class="layout-home-contact">
+      <div class="container">
+         <div class="layout-home-contact__attn">
+            <h4>
+               <i class="icon-phone" aria-hidden="true"></i> Call 502-817-8175 to book your next visit, or send us a message below.
+            </h4>
+
+            <p>$300 per night, 2 night minimum plus taxes and fees.</p>
+         </div>
+
+         <div class="layout-home-contact__form">
+            <form id="contact-form" class="contact-form" name="contact" method="POST" data-netlify="true">
+               <noscript>
+                  <p><strong>JavaScript must be enabled to use this form.</strong></p>
+               </noscript>
+
+               <input type="hidden" name="form-name" value="contact" readonly />
+               <input type="hidden" name="subject" value="New Hope Bourbon Stop Website Contact Form" readonly />
+               <input type="text" name="name" placeholder="Name" aria-label="Name" maxlength="200" required />
+               <input type="email" name="email" placeholder="Email Address" aria-lable="Email Address" maxlength="100" required />
+               <input type="tel" name="phone" placeholder="Phone Number" maxlength="30" aria-label="Phone Number" />
+               <textarea name="message" placeholder="Message" maxlength="10000" aria-label="Message" required></textarea>
+
+               <button class="button" type="submit">
+                  Send Message &nbsp;<i class="icon-mail" aria-hidden="true"></i>
+               </button>
+            </form>
+         </div>
+
+         <div class="layout-home-contact__info">
+            <div class="google-map">
+            </div>
+         </div>
+      </div>
+   </section>
+{% endblock %}

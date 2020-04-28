@@ -1,0 +1,36 @@
+* {
+   &,
+   &:before,
+   &:after {
+      box-sizing: border-box;
+   }
+}
+
+html,
+body {
+   height: 100%;
+   font-size: $rem-base;
+}
+
+body {
+   position: relative;
+   background-position: center center;
+   background-repeat: repeat;
+   background-color: $bg-color;
+   color: $light-text;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 400;
+   line-height: 1.5;
+   padding: 0;
+   margin: 0;
+   overflow-x: hidden;
+   
+   .no-js &,
+   .no-webp & {
+      background-image: url('/images/black-wood-small.jpg');
+   }
+   
+   .webp & {
+      background-image: url('/images/black-wood-small.webp');
+   }
+}

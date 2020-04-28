@@ -1,0 +1,176 @@
+/// $exclude-these-text-inputs must be a type of list if used
+
+$exclude-these-text-inputs: ('color', 'datetime-local', 'month', 'time', 'week', 'search', 'url', 'datetime', 'password');
+
+$text-inputs: get-all-text-inputs($exclude-these-text-inputs);;
+$text-inputs-with-select: get-all-text-inputs($exclude-these-text-inputs, ('select'));
+
+form {
+    margin: 0 0 1.25rem;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 1.25rem;
+    margin: 1.125rem 0;
+
+    > *:last-child {
+      margin-bottom: 0;
+   }
+}
+
+label {
+    display: block;
+    position: relative;
+    margin: 0;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    margin: 0 0 1.5rem;
+}
+
+#{$text-inputs-with-select} {
+    box-sizing: border-box;
+    width: 100%;
+    height: 3.3375rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    font-family: arial;
+    font-size: 1rem;
+    color: $black;
+    background-color: $white;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+
+    &:focus {
+        border: 1px solid #ddd;
+        outline: none;
+        transition: border-color 0.25s ease-in-out;
+   }
+}
+
+#{$text-inputs} {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input:disabled,
+input[readonly],
+textarea:disabled,
+textarea[readonly],
+select[disabled] {
+    background-color: #ddd;
+    cursor: default;
+    color: #8a8a8a;
+}
+
+
+textarea {
+    height: auto;
+    min-height: 100px;
+    max-width: 100%;
+    resize: vertical;
+}
+
+select {
+    outline: 0 !important;
+
+    &[size],
+    &[multiple] {
+        height: auto;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+
+[type="checkbox"],
+[type="radio"] {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+label {
+    [type="checkbox"],
+    [type="radio"] {
+        margin-right: 0.35em;
+    }
+
+    & + [type="checkbox"],
+    & + [type="radio"]{
+        display: inline-block;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+        vertical-align: baseline;
+
+        & + label {
+            margin-left: 0;
+        }
+    }
+}
+
+[type="checkbox"] + label,
+[type="radio"] + label {
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    vertical-align: baseline;
+}
+
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    margin: 0 1rem 1rem 0;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}
+
+::-webkit-input-placeholder {
+   color: $dark-text;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $dark-text;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $dark-text;
+}
+
+:-ms-input-placeholder {
+   color: $dark-text;
+}
+
+/*
+   https://developer.mozilla.org/en-US/docs/Web/CSS/:valid
+*/
+
+/*
+input,
+select,
+textarea {
+   &:focus:invalid {
+      border: 1px solid $accent-color-dark;
+   }
+}
+*/
+
+select:invalid:not(:focus) {
+   color: #cacaca;
+}

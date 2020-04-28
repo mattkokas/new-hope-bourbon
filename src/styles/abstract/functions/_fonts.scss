@@ -1,0 +1,54 @@
+@function get-google-font-family($key-name) {
+    $google-fonts: (
+        alegreya: ('Alegreya', serif),
+        alegreya-sans: ('Alegreya Sans', sans-serif),
+        arvo: ('Arvo', serif),
+        bitter: ('Bitter', serif),
+        cardo: ('Cardo', serif),
+        domine: ('Domine', serif),
+        driod-sans: ('Droid Sans', sans-serif),
+        fira-sans: ('Fira Sans', sans-serif),
+        lato: ('Lato', sans-serif),
+        open-sans: ('Open Sans', sans-serif),
+        playfair: ('Playfair Display', serif),
+        pt-sans: ('PT Sans', sans-serif),
+        pt-serif: ('PT Serif', serif),
+        raleway: ('Raleway', sans-serif),
+        roboto: ('Roboto', sans-serif),
+        ubuntu: ('Ubuntu', sans-serif),
+        varela-round: ('Varela Round', sans-serif),
+        vollkorn: ('Vollkorn', serif),
+        work-sans: ('Work Sans', sans-serif)
+    );
+
+    $key-name: to-lower-case($key-name);
+
+    @if map-has-key($google-fonts, $key-name) {
+        @return map-get($google-fonts, #{$key-name});
+    }
+
+    @error 'Google Font Key Name Not Found in $google-fonts map.';
+}
+
+
+
+@function get-font-family($key-name) {
+    $font-stacks: (
+        arial: (Arial, "Helvetica Neue", Helvetica, sans-serif),
+        georgia: ("Georgia", "Cambria", "Times New Roman", "Times", serif),
+        helvetica: ("Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif),
+        lucida-grande: ("Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif),
+        monospace: ("Bitstream Vera Sans Mono", "Consolas", "Courier", monospace),
+        verdana: ( Verdana, Geneva, sans-serif)
+    );
+
+    $key-name: to-lower-case($key-name);
+
+
+    @if map-has-key($font-stacks, $key-name) {
+        @return map-get($font-stacks, #{$key-name});
+    }
+
+    @error 'Font Stack Key Name Not Found in $font-stacks map.';
+
+}

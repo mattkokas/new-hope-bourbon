@@ -1,0 +1,46 @@
+@mixin fancyHeaderBorder($color: #fff, $width: 120px, $height: 10px, $spacing: 24px) {
+   @if type-of($width) == 'number' and not unitless($width) {
+      $width: $width / ($width * 0 + 1);
+   }
+
+   @if type-of($height) == 'number' and not unitless($height) {
+      $height: $height / ($height * 0 + 1);
+   }
+
+   @if type-of($spacing) == 'number' and not unitless($spacing) {
+      $spacing: $spacing / ($spacing * 0 + 1);
+   }
+
+   @if $spacing > 0 {
+      $spacing: $spacing * -1;
+   }
+
+   position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      left: 50%;
+   }
+
+    &:before {
+      height: $height + px;
+      width: $width + px;
+      position: absolute;
+      bottom: $spacing + px;
+      margin-left: ($width / -2) + px;
+      background: $color;
+   }
+
+   &:after {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: #{$height}px #{$height}px 0 #{$height}px;
+      border-color: $color transparent transparent transparent;
+      position: absolute;
+      bottom: ($spacing - $height) + px;
+      margin-left: ($height * -1) + px;
+   }
+}

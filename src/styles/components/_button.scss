@@ -1,0 +1,26 @@
+.button,
+[class^="button"] {
+   display: inline-block;
+   background-color: transparent;
+   border: 2px solid #ddd;
+   color: #ddd;
+   margin: 0 auto 1.25rem;
+   text-align: center;
+   line-height: 1;
+   cursor: pointer;
+   vertical-align: middle;
+   padding: 0.85em 1.25em 0.75em;
+   position: relative;
+   transition: all 0.25s ease-out;
+   -webkit-appearance: none;
+   font-weight: bold;
+   text-transform: uppercase;
+   text-decoration: none;
+
+   &:hover,
+   &:focus,
+   &:active {
+      opacity: 0.8;
+      color: #ddd;
+   }
+}

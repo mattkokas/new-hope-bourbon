@@ -1,0 +1,107 @@
+.footer {
+   clear: both;
+   background: hex-to-rgba(darken(#292929, 10%), .75);
+   padding: 2rem 0 1.5rem;
+   border-top: 2px solid hex-to-rgba(#ddd, 0.3);
+   @include clearFix();
+}
+
+.footer__contact {
+   @include breakpoint($medium-breakpoint) {
+      float: left;
+      width: 50%;
+      padding-right: $gutter-size;
+   }
+   
+   .address-block,
+   .phone-block {
+      @include breakpoint($medium-breakpoint) {
+         display: inline-block;
+         vertical-align: top;
+      } 
+   }
+   
+   .address-block {
+      @include breakpoint($medium-breakpoint) {
+         padding-right: 1.5em;
+      } 
+   }
+   
+}
+
+.footer_social_media {
+   @include breakpoint($medium-breakpoint) {
+      float: right;
+      width: 50%;
+      padding-right: $gutter-size;
+   }
+}
+
+.social-media-list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+   
+   @include breakpoint($medium-breakpoint) {
+      text-align: right;
+   }
+}
+
+.social-media-item {
+   display: inline-block;
+   vertical-align: middle;
+   margin: 0 0.5em;
+   position: relative;
+   
+   span {
+      display: none;
+   }
+   
+   .facebook {
+      &:before {
+         content: "";
+         background: url('/images/facebook.svg') 0 0 no-repeat transparent;
+         height: 40px;
+         width: 40px;
+         display: inline-block;
+      }
+   }
+   
+   .airbnb {
+      &:before {
+         content: "";
+         background: url('/images/airbnb.svg') 0 0 no-repeat transparent;
+         height: 50px;
+         width: 50px;
+         display: inline-block;
+      }
+   }
+}
+
+.address-block,
+.phone-block {
+   position: relative;
+   padding-left: 1.25em;
+   
+   &:before {
+      font-family: "fontello";
+      display: inline-block;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+   }
+}
+
+.address-block {
+   &:before {
+      content: $icon-location;
+   }
+}
+
+.phone-block {
+   &:before {
+      content: $icon-phone;
+   }
+}

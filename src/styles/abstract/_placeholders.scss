@@ -1,0 +1,43 @@
+%container {
+    padding-left: $gutter-half;
+    padding-right: $gutter-half;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    max-width: $max-container-width;
+    @include clearFix();
+
+    @include breakpoint($medium-breakpoint) {
+      padding-left: $gutter-size;
+      padding-right: $gutter-size;
+   }
+}
+
+
+%button {
+   color: $white;
+   background-color: inherit;
+   display: inline-block;
+   text-align: center;
+   line-height: 1;
+   cursor: pointer;
+   vertical-align: middle;
+   border-width: 2px;
+   border-style: solid;
+   border-color: $white;
+   padding: 0.85em 2.5em;
+   margin: 0 0 1.5rem 0;
+   font-size: 1rem;
+   position: relative;
+   transition: all 0.25s ease-out;
+   text-transform: uppercase;
+   text-shadow: none;
+   font-weight: 700;
+   -webkit-appearance: none;
+
+   &:hover,
+   &:focus {
+      color: $white;
+      background-color: inherit;
+   }
+}

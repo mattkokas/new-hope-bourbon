@@ -1,0 +1,25 @@
+@function get-tilted-height($angle) {
+  $a: (100% / 1%);
+  $A: (90deg - $angle);
+  $c: ($a / sin($A));
+  $b: sqrt(pow($c, 2) - pow($a, 2));
+
+  @return (abs($b) * 1%);
+}
+
+@mixin tilted($angle, $color) {
+  $height: get-tilted-height($angle);
+
+  position: relative;
+  background-color: $color;
+
+  &::before {
+    content: '';
+    padding-top: $height;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    background-image: linear-gradient($angle, $color 50%, transparent 50%);
+  }
+}

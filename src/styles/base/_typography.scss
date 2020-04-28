@@ -1,0 +1,81 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+   color: inherit;
+   line-height: 1.2;
+   position: relative;
+   font-weight: 400;
+   margin: 0 0 1rem;
+   text-rendering: optimizeLegibility;
+   font-family: 'Open Sans', sans-serif;
+
+   small {
+      font-size: 60%;
+   }
+}
+
+@for $i from 1 through 5 {
+   $scale: pixels-to-rems(modular-scale(6-$i, 16px, $minor-third));
+
+   h#{$i} {
+      font-size: $scale;
+   }
+}
+
+h6 {
+   font-size: 1rem;
+}
+
+p {
+   position: relative;
+   margin: 0 0 1.5rem;
+}
+
+
+a {
+   color: $light-text-secondary;
+   text-decoration: none;
+   outline: none;
+   cursor: pointer;
+   transition: color 150ms ease-in-out, opacity 150ms ease-in-out;
+   display: inline-block;
+
+   &:hover,
+   &:active,
+   &:focus {
+      color: hex-to-rgba($light-text, 0.9);
+   }
+}
+
+/*
+blockquote {
+    margin: 0.5rem 0 1.5rem;
+    padding: 0;
+}
+*/
+
+hr {
+    border: solid #eee;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 1.25rem 0 1.1875rem;
+    height: 0;
+    box-sizing: content-box;
+}
+
+
+::-moz-selection {
+   text-shadow: none;
+   color: inherit;
+   background: hex-to-rgba($black, 0.3);
+}
+
+::selection {
+   text-shadow: none;
+   color: inherit;
+   background: hex-to-rgba($black, 0.3);
+}

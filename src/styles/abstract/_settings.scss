@@ -1,0 +1,40 @@
+$rem-base: 16px;
+$em-base: $rem-base;
+
+
+/* ==========================================================================
+   Breakpoints
+   ========================================================================== */
+/// Set your breakpoints values.
+$small-breakpoint: null !default;
+$medium-breakpoint: 600px !default;
+$large-breakpoint: 960px !default;
+$xlarge-breakpoint: 1200px !default;
+$xxlarge-breakpoint: 1600px !default;
+
+/* ==========================================================================
+   Grid / Container spacing
+   ========================================================================== */
+$max-container-width: pixels-to-rems(1600, $rem-base);
+$gutter-size: pixels-to-rems(30, $rem-base);
+$gutter-half: pixels-to-rems(15, $rem-base);
+
+
+/* ==========================================================================
+   Common Colors
+   ========================================================================== */
+$black: #000;
+$white: #fff;
+
+$bg-color: #292929;
+
+$light-text: #ddd;
+$light-text-secondary: hex-to-rgba($light-text, .7);
+$light-text-disabled: hex-to-rgba($light-text, .5);
+
+$dark-text: #4E4F4F;
+$dark-text-secondary: hex-to-rgba($dark-text, .7);
+
+$accent-color: #F2F2F2;
+
+$warning-color: #9a2928;

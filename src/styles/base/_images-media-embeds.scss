@@ -1,0 +1,30 @@
+img {
+   border: 0;
+   display: inline-block;
+   vertical-align: middle;
+   max-width: 100%;
+   height: auto;
+   -ms-interpolation-mode: bicubic;
+
+   &[src*=".svg"] {
+      width: 100%;
+   }
+}
+
+/*
+figure {
+   margin: 0 0 1.25rem;
+   display: inline-block;
+   max-width: 100%;
+}
+
+
+figcaption {
+   margin: 0.25rem 0 0;
+}
+*/
+
+iframe {
+   display: block;
+   border: 0;
+}

@@ -1,0 +1,67 @@
+{% set nav = [
+   {
+      "title": "About",
+      "hash": "about"
+   },
+   {
+      "title": "Attractions",
+      "hash": "attractions"
+   },
+   {
+      "title": "Services",
+      "hash": "services"
+   },
+   {
+      "title": "Gallery",
+      "hash": "gallery"
+   },
+   {
+      "title": "Amenities",
+      "hash": "amenities"
+   },
+   {
+      "title": "Contact",
+      "hash": "contact"
+   }
+] %}
+
+<header class="header" role="banner">
+   <span class="header__phone">
+      502-817-8175
+   </span>
+
+   <a class="header__call" href="tel:15028178175" title="Call Today (502) 817-8175">
+      <span>502-817-8175</span>
+   </a>
+
+   <div class="nav-toggle" title="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+   </div>
+
+   <nav class="nav" role="navigation">
+      <ul class="nav__menu">
+         {% for item in nav %}
+          <li class="nav__item">
+            {% if canonical == '/' %}
+               <a class="nav__link" href="#{{item.hash}}">
+                  {{item.title}}
+               </a>
+            {% else %}
+               <a class="nav__link" href="/#{{item.hash}}">
+                  {{item.title}}
+               </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+   </nav>
+
+   <div class="logo">
+      <h1>
+         <span>New Hope</span> <span>Bourbon Stop</span>
+      </h1>
+   </div>
+</header>

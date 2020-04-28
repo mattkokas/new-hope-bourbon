@@ -1,0 +1,25 @@
+@mixin evenOddBackground($bgColor, $selector, $evenOrOdd: 'even', $oppositeBg: null) { 
+    $evenOrOdd: to-lower-case($evenOrOdd);
+    $opposite: 'odd';
+    
+    @if $evenOrOdd != 'even' {
+        @if $evenOrOdd != 'odd' {
+            @error 'EvenOddBackground: $evenOrOdd param must equal "even" or "odd".'
+        }
+    }
+    
+    @if $evenOrOdd == 'odd' {
+        $opposite: 'even';
+    }
+  
+
+    #{$selector}:nth-child(#{$evenOrOdd}) {
+        background-color: $bgColor;
+    }
+        
+    @if $oppositeBg {
+        #{$selector}:nth-child(#{$opposite}) {
+            background-color: $oppositeBg;
+        }
+    }
+}

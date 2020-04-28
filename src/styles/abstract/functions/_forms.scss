@@ -1,0 +1,64 @@
+@function get-all-text-inputs($exclude-list: null, $add-raw-list: null, $state: null)
+{
+    $types: 'color', 
+            'date', 
+            'datetime', 
+            'datetime-local', 
+            'email', 
+            'month', 
+            'number', 
+            'password', 
+            'search', 
+            'tel', 
+            'text', 
+            'time', 
+            'url', 
+            'week';
+    
+    $raw: 'input:not([type])', 
+           'textarea';
+    
+    $text-inputs-list: ();
+    
+    @for $i from 1 through length($exclude-list) {
+        $exclude: nth($exclude-list, $i);
+        
+        @if index($types, $exclude) {
+            $types: set-nth($types, index($types, $exclude), null);
+        }
+        
+        @if index($raw, $exclude) {
+            $raw: set-nth($raw, index($raw, $exclude), null);
+        }
+    }
+    
+    @each $type in $types {
+        @if ($type) {
+            $input: 'input[type="#{$type}"]';
+            $text-inputs-list: append($text-inputs-list, $input, comma);
+        }
+    }
+
+    @each $el in $raw {
+        @if ($el) {
+            $text-inputs-list: append($text-inputs-list, $el, comma);
+        }
+    }
+
+    @each $raw-selector in $add-raw-list {
+        @if ($raw-selector) {
+            $text-inputs-list: append($text-inputs-list, $raw-selector, comma);
+        }
+    }
+    
+    @if $state {
+        @for $i from 1 through length($text-inputs-list) {
+            $selector: quote(nth($text-inputs-list, $i));
+            $selector: $selector + '#{$state}';
+            $text-inputs-list: set-nth($text-inputs-list, $i, $selector);
+        }
+    }
+    
+    @return $text-inputs-list;
+}
+
