@@ -1,0 +1,9 @@
+/* TEAM */
+    Web Developer, Designer, Hosting: Matt Kokas
+    Contact: mattkokas [at] gmail.com
+    From: Louisville, Kentucky, USA	
+
+/* SITE */
+    Last update: 2017/06/28
+    Standards: HTML5, CSS3, ES6 Javascript
+    Built With: Sass, NPM, Gulp, Nunjucks, Babel, amongst other tools...
