@@ -1,27 +1,31 @@
 {% set nav = [
    {
+      "title": "Home",
+      "href": "/"
+   },
+   {
       "title": "About",
-      "hash": "about"
+      "href": "/#about"
    },
    {
       "title": "Attractions",
-      "hash": "attractions"
+      "href": "/#attractions"
    },
    {
       "title": "Services",
-      "hash": "services"
+      "href": "/#services"
    },
    {
       "title": "Gallery",
-      "hash": "gallery"
+      "href": "/photos"
    },
    {
       "title": "Amenities",
-      "hash": "amenities"
+      "href": "/#amenities"
    },
    {
       "title": "Contact",
-      "hash": "contact"
+      "href": "/#contact"
    }
 ] %}
 
@@ -45,15 +49,9 @@
       <ul class="nav__menu">
          {% for item in nav %}
           <li class="nav__item">
-            {% if canonical == '/' %}
-               <a class="nav__link" href="#{{item.hash}}">
-                  {{item.title}}
-               </a>
-            {% else %}
-               <a class="nav__link" href="/#{{item.hash}}">
-                  {{item.title}}
-               </a>
-            {% endif %}
+             <a class="nav__link" href="{{ item.href }}">
+                {{ item.title }}
+             </a>
           </li>
         {% endfor %}
       </ul>
@@ -61,7 +59,9 @@
 
    <div class="logo">
       <h1>
-         <span>New Hope</span> <span>Bourbon Stop</span>
+         <a href="/">
+            <span>New Hope</span> <span>Bourbon Stop</span>
+         </a>
       </h1>
    </div>
 </header>

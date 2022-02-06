@@ -30,7 +30,7 @@
          left: $gutter-half;
          font-size: 1.25rem;
          z-index: 5000;
-         
+
 
          &:before {
             font-family: "fontello";
@@ -205,6 +205,14 @@
 
   &:after {
      right: 0;
+  }
+
+  a,
+  a:active,
+  a:focus,
+  a:hover {
+    color: #D5AD6D;
+    text-decoration: none;
   }
 
       span {

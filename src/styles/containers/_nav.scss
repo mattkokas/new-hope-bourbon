@@ -9,9 +9,9 @@
   transition: .5s ease-in-out;
   cursor: pointer;
    display: inline-block;
-   z-index: 9999;
-   
-   
+   z-index: 5000;
+
+
    span {
       display: block;
       position: absolute;
@@ -24,7 +24,7 @@
       left: 0;
       transform: rotate(0deg);
       transition: all 200ms ease-in-out;
-      
+
       &:nth-child(1) {
         top: 0;
       }
@@ -38,7 +38,7 @@
         top: 24px;
       }
    }
-   
+
 
    .state--nav-open & {
       span {
@@ -47,20 +47,20 @@
            width: 0%;
            left: 50%;
          }
-         
+
          &:nth-child(2) {
            transform: rotate(45deg);
          }
-         
+
          &:nth-child(3) {
            transform: rotate(-45deg);
          }
-         
+
          &:nth-child(4) {
            top: 12px;
            width: 0%;
            left: 50%;
-         }          
+         }
       }
    }
 }
@@ -78,17 +78,17 @@
    position: fixed;
    left: -1000px;
    transition: all 150ms ease-in-out;
-   
+
    .state--nav-open & {
       left: 0;
-      
+
       @include breakpoint($large-breakpoint) {
          right: 0;
          left: auto;
          opacity: 1;
       }
    }
-   
+
    @include breakpoint($large-breakpoint) {
       left: auto;
       right: -100%;
@@ -102,7 +102,7 @@
       opacity: 1;
       border-bottom-left-radius: 10px;
       box-shadow: 10px 10px 10px hex-to-rgba($black, 0.5);
-      
+
       /*
       position: relative;
       top: auto;
@@ -113,14 +113,14 @@
       padding-top: 0.75rem;
       */
    }
-   
+
    &__menu {
       list-style: none;
       padding: 0;
       margin: 0;
       @include clearFix();
-      border-top: 2px solid hex-to-rgba(#ddd, 0.3); 
-      
+      border-top: 2px solid hex-to-rgba(#ddd, 0.3);
+
       @include breakpoint($large-breakpoint) {
          border: 0;
          /*
@@ -130,13 +130,13 @@
          */
       }
    }
-   
+
    &__item {
       text-align: center;
       padding: 0;
-      border-bottom: 2px solid hex-to-rgba(#ddd, 0.3); 
+      border-bottom: 2px solid hex-to-rgba(#ddd, 0.3);
       text-shadow: 0 1px 1px hex-to-rgba($black, 0.5);
-      
+
       @include breakpoint($large-breakpoint) {
          /*
          border: 0;
@@ -148,12 +148,12 @@
          text-align: right;
       }
    }
-   
+
    &__link {
       color: $white;
       display: block;
       padding: 0.5em $gutter-size;
-      
+
       @include breakpoint($large-breakpoint) {
          /*
          display: inline-block;
@@ -162,5 +162,3 @@
       }
    }
 }
-
-

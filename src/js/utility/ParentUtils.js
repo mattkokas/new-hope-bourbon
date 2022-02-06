@@ -1,6 +1,6 @@
 'use strict';
 
-import { hasClass } from './ClassnameUtils';
+import {hasClass} from './ClassnameUtils';
 
 
 export function getParentByTag (element, tag) {

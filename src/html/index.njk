@@ -8,72 +8,108 @@
 
 {% set gallery = [
    {
-      "src": "house-view",
-      "alt": "View of Home from Outside"
+      src: "outside/home",
+      alt: "House (front view)"
    },
    {
-      "src": "bar-area",
-      "alt": "Bar Area"
+      src: "outside/porch",
+      alt: "Front Porch"
    },
    {
-      "src": "kitchen",
-      "alt": "View of Kitchen Area"
+      src: "bar/bourbon-barrel-bar",
+      alt: "Bourbon Barrel Bar"
    },
    {
-      "src": "living-room",
-      "alt": "Living Room Area"
+      src: "bar/bar-glassware",
+      alt: "Bar Glassware"
    },
    {
-      "src": "couch",
-      "alt": "Couch in Living Room"
+      src: "main/living-room-2",
+      alt: "Living Room"
    },
    {
-      "src": "refrigerator",
-      "alt": "Refrigerator"
+      src: "main/kitchen",
+      alt: "Kitchen"
    },
    {
-      "src": "single-bed-bedroom",
-      "alt": "Single Bed Bedroom"
+      src: "main/refrigerator",
+      alt: "Refrigerator"
    },
    {
-      "src": "double-bed-bedroom",
-      "alt": "Double Bed Bedroom"
+      src: "outside/fire-pit",
+      alt: "Fire Pit"
    },
    {
-      "src": "bedroom",
-      "alt": "Bedroom"
+      src: "outside/picnic-table",
+      alt: "Picnic Table"
    },
    {
-      "src": "bathroom-mirror",
-      "alt": "Bathroom Mirror"
+      src: "outside/flowers",
+      alt: "Flowerbed"
    },
    {
-      "src": "bathroom",
-      "alt": "Bathroom"
+      src: "outside/firepit-back",
+      alt: "Back Yard"
    },
    {
-      "src": "interior-doors",
-      "alt": "Interior Doors"
+      src: "outside/side-yard",
+      alt: "Side Yard"
    },
    {
-      "src": "new-hope-bourbon-stop-sign",
-      "alt": " New Hope Bourbon Stop Sign"
+      src: "bar/bar-stools",
+      alt: "Bar Stools"
    },
    {
-      "src": "no-smoking-sign",
-      "alt": "No Smoking Beyond This Point Sign"
+      src: "bar/cigar-bar",
+      alt: "Cigar Bar"
    },
    {
-      "src": "house-front",
-      "alt": "Front of Home"
+      src: "bar/no-smoking-door",
+      alt: "No Smooking beyond this point"
    },
    {
-      "src": "view-from-air",
-      "alt": "View of house from air."
+      src: "bar/bar-sink",
+      alt: "Bar Sink"
    },
    {
-      "src": "view-of-town",
-      "alt": "View of New Hope, Kentucky from air."
+      src: "main/utensils",
+      alt: "Kitchen Utensils"
+   },
+   {
+      src: "bathroom/bathtub",
+      alt: "Shower"
+   },
+   {
+      src: "bathroom/towels",
+      alt: "Bath Towels"
+   },
+   {
+      src: "bathroom-2/bathroom-sink",
+      alt: "Bathroom Sink"
+   },
+   {
+      src: "bathroom-2/toilet-3",
+      alt: "Bathroom"
+   },
+   {
+      src: "outside/front-snow",
+      alt: "Winter View"
+   },
+   {
+      src: "outside/side-view",
+      alt: "Side View Outisde"
+   },
+   {
+      src: "outside/fire",
+      alt: "Outdoor Camp Fire"
+   },
+   {
+      src: "outside/sunset",
+      alt: "Sunset"
+   },
+   {
+      src: "outside/map",
+      alt: "Area Map"
    }
 ] %}
 
@@ -88,12 +124,18 @@
       <article class="container">
          <p>New Hope Bourbon Stop is a vacation rental located in the heart of Bourbon Country. This one-of-a-kind building has been in our family for three generations.</p>
 
-         <p>In the late 1930s our grandparents bought the building and started the New Hope Grocery Store. Later they added the Dance Hall. In those years it was “the place to be”, and for many years both the store and dance hall thrived. As our grandparents aged, they closed the store and focused on their farmland.</p>
+         <p>In the late 1930s our grandparents bought the building and started the New Hope Grocery Store. Later they added the Dance Hall. In those years it was &ldquo;the place to be&rdquo;, and for many years both the store and dance hall thrived. As our grandparents aged, they closed the store and focused on their farmland.</p>
 
-         <p>The year 2014 was a turning point for the old “Old Grocery Store” as it’s called by the locals. That was the year my brother and I inherited the building. We felt passionate about the legacy of our family place and didn’t want to just let it go.</p>
+         <p>The year 2014 was a turning point for the old &ldquo;Old Grocery Store&rdquo; as it&rsquo;s called by the locals. That was the year my brother and I inherited the building. We felt passionate about the legacy of our family place and didn&rsquo;t want to just let it go.</p>
 
          <p>Realizing that New Hope sits in the heart of Bourbon Country and is centrally located to many attractions and sights, we decided to undergo a total renovation. Now we would love to share our family home with YOU! Nelson County is filled with beautiful farmland and landscape. The drive and the sunsets alone are sights to behold.</p>
       </article>
+
+      {#
+      <div>
+         <h1>ADD FACEBOOK, AIR BNB LINKS HERE TOO</h1>
+      </div>
+      #}
    </section>
 
    <section id="attractions" class="layout-home-attractions">
@@ -104,7 +146,7 @@
             <ul class="list-star">
                <li>Bardstown, KY in Nelson County is the Bourbon Capital of the World</li>
                <li>Bardstown hosts the annual Kentucky Bourbon Festival in September</li>
-               <li>We are minutes away from Makers Mark, Heaven Hill, Willett, & Barton 1792 Distilleries</li>
+               <li>We are minutes away from Makers Mark, Heaven Hill, Willett, &amp; Barton 1792 Distilleries</li>
                <li>Many more local distilleries are under an hour drive</li>
                <li>Bardstown has three golf courses</li>
                <li>My Old Kentucky Dinner Train plus many other great restaurants in the area</li>
@@ -140,30 +182,18 @@
             <ul class="gallery__track">
                {% for img in gallery %}
                   <li class="gallery__track__item">
-                     <a href="/images/gallery/{{img.src}}.jpg" target="_blank">
-                        <picture>
-                           <source media="(max-width: 400px)" srcset="/images/gallery/{{img.src}}-200x150.webp" type="image/webp">
-
-                           <source media="(max-width: 400px)" srcset="/images/gallery/{{img.src}}-200x150.jpg">
-
-                           <source media="(max-width: 960px)" srcset="/images/gallery/{{img.src}}-250x188.webp" type="image/webp">
-
-                           <source media="(max-width: 960px)" srcset="/images/gallery/{{img.src}}-250x188.jpg">
-
-                           <source type="image/webp" srcset="/images/gallery/{{img.src}}-400x300.webp">
-
-                           {% if loop.index > 8 %}
-                              <img class="lazyload" data-src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
-                              <noscript>
-                                 <img src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
-                              </noscript>
-                           {% else %}
-                              <img class="lazyload" data-src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
-                              <noscript>
-                                 <img src="/images/gallery/{{img.src}}-400x300.jpg" alt="{{img.alt}}">
-                              </noscript>
-                           {% endif %}
-                        </picture>
+                     <a href="/images/gallery-2022/{{ img.src }}.jpg" target="_blank">
+                        {% if loop.index > 8 %}
+                           <img class="lazyload" data-src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           <noscript>
+                              <img src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           </noscript>
+                        {% else %}
+                           <img class="lazyload" data-src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           <noscript>
+                              <img src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           </noscript>
+                        {% endif %}
                      </a>
                   </li>
                {% endfor %}
@@ -188,8 +218,8 @@
                </div>
             </div>
 
-            <a class="button gallery__expander__btn">
-               View More Photos <i class="icon-angle-double-down" aria-hidden="true"></i>
+            <a class="button" href="/photos">
+               View More Photos <i class="icon-right-open" aria-hidden="true"></i>
             </a>
          </div>
       </div>
@@ -220,42 +250,6 @@
                <li>Heating / Air Conditioning</li>
                <li>Shampoo & Essentials</li>
             </ul>
-         </div>
-      </div>
-   </section>
-
-   <section id="contact" class="layout-home-contact">
-      <div class="container">
-         <div class="layout-home-contact__attn">
-            <h4>
-               <i class="icon-phone" aria-hidden="true"></i> Call 502-817-8175 to book your next visit, or send us a message below.
-            </h4>
-
-            <p>$300 per night, 2 night minimum plus taxes and fees.</p>
-         </div>
-
-         <div class="layout-home-contact__form">
-            <form id="contact-form" class="contact-form" name="contact" method="POST" data-netlify="true">
-               <noscript>
-                  <p><strong>JavaScript must be enabled to use this form.</strong></p>
-               </noscript>
-
-               <input type="hidden" name="form-name" value="contact" readonly />
-               <input type="hidden" name="subject" value="New Hope Bourbon Stop Website Contact Form" readonly />
-               <input type="text" name="name" placeholder="Name" aria-label="Name" maxlength="200" required />
-               <input type="email" name="email" placeholder="Email Address" aria-lable="Email Address" maxlength="100" required />
-               <input type="tel" name="phone" placeholder="Phone Number" maxlength="30" aria-label="Phone Number" />
-               <textarea name="message" placeholder="Message" maxlength="10000" aria-label="Message" required></textarea>
-
-               <button class="button" type="submit">
-                  Send Message &nbsp;<i class="icon-mail" aria-hidden="true"></i>
-               </button>
-            </form>
-         </div>
-
-         <div class="layout-home-contact__info">
-            <div class="google-map">
-            </div>
          </div>
       </div>
    </section>

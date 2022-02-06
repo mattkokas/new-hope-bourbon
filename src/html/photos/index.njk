@@ -1,0 +1,203 @@
+{% set pageName = 'Photo Gallery' %}
+{% set metaImage = '/images/new-hope-bourbon-stop.jpg' %}
+{% set canonical = '/photos' %}
+
+{% extends '_layouts/default.njk' %}
+
+{% set gallery = [
+   {
+      src: "outside/home",
+      alt: "House (front view)"
+   },
+   {
+      src: "outside/porch",
+      alt: "Front Porch"
+   },
+   {
+      src: "bar/bourbon-barrel-bar",
+      alt: "Bourbon Barrel Bar"
+   },
+   {
+      src: "bar/bar-area",
+      alt: "Bar Area"
+   },
+   {
+      src: "bar/bar-glassware",
+      alt: "Bar Glassware"
+   },
+   {
+      src: "main/living-room-1",
+      alt: "Living Room"
+   },
+   {
+      src: "main/living-room-2",
+      alt: "Living Room"
+   },
+   {
+      src: "main/kitchen",
+      alt: "Kitchen"
+   },
+   {
+      src: "main/refrigerator",
+      alt: "Refrigerator"
+   },
+   {
+      src: "main/interior-doors",
+      alt: "Interior Doors"
+   },
+   {
+      src: "bedroom/master-bedroom-alt",
+      alt: "Master Bedroom"
+   },
+   {
+      src: "bedroom/single-bedroom",
+      alt: "Single Bed"
+   },
+   {
+      src: "bedroom/double-bed",
+      alt: "Double Bed"
+   },
+   {
+      src: "bathroom/bathroom-sink",
+      alt: "Bathroom Sink"
+   },
+   {
+      src: "bathroom/bathroom-door",
+      alt: "Bathroom Door"
+   },
+   {
+      src: "bathroom-2/bathroom",
+      alt: "Bathroom"
+   },
+   {
+      src: "outside/fire-pit",
+      alt: "Fire Pit"
+   },
+   {
+      src: "outside/picnic-table",
+      alt: "Picnic Table"
+   },
+   {
+      src: "outside/flowers",
+      alt: "Flowerbed"
+   },
+   {
+      src: "outside/firepit-back",
+      alt: "Back Yard"
+   },
+   {
+      src: "outside/side-yard",
+      alt: "Side Yard"
+   },
+   {
+      src: "bar/bar-stools",
+      alt: "Bar Stools"
+   },
+   {
+      src: "bar/cigar-bar",
+      alt: "Cigar Bar"
+   },
+   {
+      src: "bar/no-smoking-door",
+      alt: "No Smooking beyond this point"
+   },
+   {
+      src: "bar/bar-sink",
+      alt: "Bar Sink"
+   },
+   {
+      src: "main/utensils",
+      alt: "Kitchen Utensils"
+   },
+   {
+      src: "bathroom/bathtub",
+      alt: "Shower"
+   },
+   {
+      src: "bathroom/towels",
+      alt: "Bath Towels"
+   },
+   {
+      src: "bathroom-2/bathroom-sink",
+      alt: "Bathroom Sink"
+   },
+   {
+      src: "bathroom-2/toilet-3",
+      alt: "Bathroom"
+   },
+   {
+      src: "outside/front-snow",
+      alt: "Winter View"
+   },
+   {
+      src: "outside/side-view",
+      alt: "Side View Outisde"
+   },
+   {
+      src: "outside/fire",
+      alt: "Outdoor Camp Fire"
+   },
+   {
+      src: "outside/sunset",
+      alt: "Sunset"
+   },
+   {
+      src: "outside/map",
+      alt: "Area Map"
+   }
+] %}
+
+{% block main %}
+   <section class="hero hero--home">
+      <div class="hero__msg">
+         <h4>Photo Gallery</h4>
+      </div>
+   </section>
+
+   <section id="gallery" class="layout-home-photos">
+      <div class="container" style="padding-top: 50px;">
+
+         <div class="gallery gallery__expand">
+            <ul class="gallery__track">
+               {% for img in gallery %}
+                  <li class="gallery__track__item">
+                     <a href="/images/gallery-2022/{{ img.src }}.jpg" target="_blank">
+                        {% if loop.index > 8 %}
+                           <img class="lazyload" data-src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           <noscript>
+                              <img src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           </noscript>
+                        {% else %}
+                           <img class="lazyload" data-src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           <noscript>
+                              <img src="/images/gallery-2022/{{ img.src }}--sm.jpg" alt="{{ img.alt }}">
+                           </noscript>
+                        {% endif %}
+                     </a>
+                  </li>
+               {% endfor %}
+            </ul>
+
+            <div class="gallery__lightbox" aria-hidden="true">
+               <a href="#" class="gallery__lightbox__close" title="Close">
+                  <span>Close</span>
+               </a>
+
+               <div class="gallery__lightbox__img__wrapper">
+                  <img class="gallery__lightbox__img">
+               </div>
+
+               <div class="gallery__lightbox__controls">
+                  <a href="#" class="gallery__lightbox__prev" title="Previous">
+                     <span>Previous</span>
+                  </a>
+                  <a href="#" class="gallery__lightbox__next" title="Next">
+                     <span>Next</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+{% endblock %}
