@@ -9,31 +9,39 @@
 .footer__contact {
    @include breakpoint($medium-breakpoint) {
       float: left;
-      width: 50%;
+      width: 45%;
       padding-right: $gutter-size;
    }
-   
+
    .address-block,
    .phone-block {
       @include breakpoint($medium-breakpoint) {
          display: inline-block;
          vertical-align: top;
-      } 
+      }
    }
-   
+
    .address-block {
       @include breakpoint($medium-breakpoint) {
          padding-right: 1.5em;
-      } 
+      }
    }
-   
+
 }
 
 .footer_social_media {
    @include breakpoint($medium-breakpoint) {
       float: right;
-      width: 50%;
+      width: 55%;
       padding-right: $gutter-size;
+   }
+}
+
+.footer {
+   .social-media-list {
+      @include breakpoint($medium-breakpoint) {
+         text-align: right;
+      }
    }
 }
 
@@ -42,22 +50,18 @@
    padding: 0;
    margin: 0;
    text-align: center;
-   
-   @include breakpoint($medium-breakpoint) {
-      text-align: right;
-   }
 }
 
 .social-media-item {
    display: inline-block;
    vertical-align: middle;
-   margin: 0 0.5em;
+   margin: 0 0.75em;
    position: relative;
-   
+
    span {
       display: none;
    }
-   
+
    .facebook {
       &:before {
          content: "";
@@ -67,7 +71,7 @@
          display: inline-block;
       }
    }
-   
+
    .airbnb {
       &:before {
          content: "";
@@ -77,13 +81,23 @@
          display: inline-block;
       }
    }
+
+   .vrbo {
+      &:before {
+         content: "";
+         background: url('/images/vrbo.svg') 0 0 no-repeat transparent;
+         height: 40px;
+         width: 121px;
+         display: inline-block;
+      }
+   }
 }
 
 .address-block,
 .phone-block {
    position: relative;
    padding-left: 1.25em;
-   
+
    &:before {
       font-family: "fontello";
       display: inline-block;
