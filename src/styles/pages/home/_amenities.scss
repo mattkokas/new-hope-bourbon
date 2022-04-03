@@ -174,4 +174,16 @@
          width: 25%;
       }
    }
+
+   &__reviews {
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-top: 2.5rem;
+
+      .button {
+         background: hex-to-rgba($black, .6);
+      }
+   }
 }

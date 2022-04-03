@@ -1,0 +1,27 @@
+.review {
+   position: relative;
+   padding: 1.2em 30px 0.5em 45px;
+   background: rgba(0, 0, 0, .5);
+   font-size: 120%;
+   margin: 0 0 2rem;
+
+   &:before {
+      content: '“';
+      font-size: 200%;
+      position: absolute;
+      left: 25px;
+      top: 0.25em;
+   }
+
+   &:after {
+
+   }
+
+   &__footer {
+      font-style: italic;
+
+      &:before {
+         content: "— ";
+      }
+   }
+}
